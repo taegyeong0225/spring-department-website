@@ -18,7 +18,9 @@ CREATE SEQUENCE board_seq
 CREATE TABLE OnlineBoard (
     board_id NUMBER PRIMARY KEY,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    content CLOB NOT NULL
+    category VARCHAR2(255) NOT NULL,  -- 'category' 필드 추가
+    content CLOB NOT NULL,
+    user_id VARCHAR2(255) NOT NULL    -- 'user_id' 필드 추가
 );
 
 -- 트리거 생성

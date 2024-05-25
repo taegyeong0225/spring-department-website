@@ -15,44 +15,55 @@ import kr.co.inhatcspring.mapper.MapperInterface;
 
 @Controller
 public class EtcController {
-	
-	private BoardDataBean boardDataBean;
-
-    @Autowired
-    MapperInterface mapper1;
     
-    // main page (home)
+    @Autowired
+    MapperInterface mapper1; // 데이터베이스 작업을 위한 MyBatis 매퍼 인터페이스 자동 주입
+
+    /***************************
+            메인 페이지
+    ***************************/
+    
+    // 메인 페이지: 홈 ("/")
     @GetMapping("/")
-	public String home() {
-		return "etc/home";
+    public String home() {
+        return "etc/home"; // 'etc/home' 뷰 반환
     }
     
-    // 오시는 길
-    @GetMapping("/directions")
-	public String directions() {
-		return "etc/directions";
-	}
+    /***************************
+            오시는 길
+    ***************************/
     
-    // writePost (글 작성)
+    // 오시는 길 페이지
+    @GetMapping("/directions")
+    public String directions() {
+        return "etc/directions"; // 'etc/directions' 뷰 반환
+    }
+    
+    // 오시는 길 페이지에서 글 작성 버튼 클릭 -> 글 작성 페이지
     @GetMapping("/directions/formPost")
     public String formPost(@RequestParam("category") String category, Model model) {
-        model.addAttribute("category", category);
-        return "etc/formPost"; // directions 폴더 내의 formPost.jsp로 이동
+        model.addAttribute("category", category); // 모델에 'category' 속성 추가
+        return "etc/formPost"; // 'etc/formPost' 뷰 반환
     }
     
+    /***************************
+            데이터 입력과 조회
+    ***************************/
     
-    // myBatis
+    // 데이터 입력 페이지
     @GetMapping("/input_data")
     public String input_data() {
         return "input_data";
     }
 
+    // 데이터 입력 처리
     @PostMapping("/input_pro")
     public String input_pro(DataBean dataBean) {
         mapper1.insert_data(dataBean);
         return "input_pro";
     }
 
+    // 데이터 조회 페이지
     @GetMapping("/read_data")
     public String read_data(Model model) {
         List<DataBean> list = mapper1.select_data();

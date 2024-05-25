@@ -9,6 +9,6 @@
 <body>
 	<%@ include file="../etc/header.jsp"%>
 	<h1>학과연혁 </h1>
-	<a href="/department-info/writePost?category=학과연혁" class="btn btn-outline-secondary">글 작성</a>
+	<a href="/ServerProgramming/department-info/formPost?category=학과연혁" class="btn btn-outline-secondary">글 작성</a>
 </body>
 </html>

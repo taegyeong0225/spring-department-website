@@ -9,6 +9,6 @@
 <body>
 	<%@ include file="../etc/header.jsp"%>
 	<h1>1학년 </h1>
-	<a href="/ServerProgramming/curriculum/writePost?category=1학년" class="btn btn-outline-secondary">글 작성</a>
+	<a href="/ServerProgramming/curriculum/formPost?category=1학년" class="btn btn-outline-secondary">글 작성</a>
 </body>
 </html>

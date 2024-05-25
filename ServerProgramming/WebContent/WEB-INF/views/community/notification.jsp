@@ -9,6 +9,6 @@
 <body>
 	<%@ include file="../etc/header.jsp"%>
 	<h1>공지사항</h1>
-	<a href="/community/writePost?category=공지사항" class="btn btn-outline-secondary">글 작성</a>
+	<a href="/ServerProgramming/community/formPost?category=공지사항" class="btn btn-outline-secondary">글 작성</a>
 </body>
 </html>
