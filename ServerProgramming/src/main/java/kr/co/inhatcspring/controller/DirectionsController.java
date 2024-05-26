@@ -1,8 +1,6 @@
 package kr.co.inhatcspring.controller;
 
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +19,6 @@ public class DirectionsController {
     @Autowired
     private MapperInterface mapper;
     
-    private static final Logger logger = LoggerFactory.getLogger(DirectionsController.class);
 
     /***************************
             오시는 길
@@ -58,10 +55,6 @@ public class DirectionsController {
 
         // 데이터 저장
         mapper.insertBoardData(boardDataBean);
-
-        // 로그 출력
-        System.out.println("글 작성됨 - " + boardDataBean.toString());
-        logger.info("글 작성됨 - 카테고리: " + boardDataBean.getCategory() + ", 제목: " + boardDataBean.getTitle() + ", 작성자: " + boardDataBean.getUserId() + ", 내용: " + boardDataBean.getContent());
 
         return "redirect:/directions";
     }
