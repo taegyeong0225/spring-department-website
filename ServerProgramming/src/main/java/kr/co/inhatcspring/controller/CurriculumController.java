@@ -21,10 +21,12 @@ public class CurriculumController {
     private MapperInterface mapper;
 
     /***************************
+     
             교과과정 컨트롤러
+            
      ***************************/
 
-    // 1학년 페이지
+    // 1학년 페이지로 이동
     @GetMapping("/first-grade")
     public String firstGrade(@RequestParam(value = "category", required = false, defaultValue = "first-grade") String category, Model model) {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
@@ -33,7 +35,7 @@ public class CurriculumController {
         return "curriculum/firstGrade"; // 1학년 교과과정 페이지 반환
     }
 
-    // 2학년 페이지
+    // 2학년 페이지로 이동 
     @GetMapping("/second-grade")
     public String secondGrade(@RequestParam(value = "category", required = false, defaultValue = "second-grade") String category, Model model) {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
@@ -42,7 +44,7 @@ public class CurriculumController {
         return "curriculum/secondGrade"; // 2학년 교과과정 페이지 반환
     }
     
-    // 3학년 페이지
+    // 3학년 페이지로 이동 
     @GetMapping("/third-grade")
     public String thirdGrade(@RequestParam(value = "category", required = false, defaultValue = "third-grade") String category, Model model) {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
@@ -51,7 +53,7 @@ public class CurriculumController {
         return "curriculum/thirdGrade"; // 3학년 교과과정 페이지 반환
     }
     
-    // 전공심화 과정 페이지
+    // 전공심화 과정으로 이동 
     @GetMapping("/bachelors-degree-course")
     public String bachelorsDegreeCourse(@RequestParam(value = "category", required = false, defaultValue = "bachelors-degree-course") String category, Model model) {
         List<BoardDataBean> boardList = mapper.getBoardList(category);

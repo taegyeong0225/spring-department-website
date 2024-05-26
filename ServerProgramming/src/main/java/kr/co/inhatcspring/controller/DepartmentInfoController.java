@@ -18,10 +18,12 @@ public class DepartmentInfoController {
     
     @Autowired
     private MapperInterface mapper;
-
-    /***************************
-	    	학과 안내
-	***************************/
+    
+	/***************************
+	 
+	  	   학과 안내 컨트롤러 
+	  		  
+	 ***************************/   
 	
 	// Main : drop-down 학과안내 -> 학과소개 (학과소개 페이지로 이동)
 	@GetMapping("/about-department")
@@ -31,10 +33,6 @@ public class DepartmentInfoController {
 		model.addAttribute("category", category);
 		return "departmentInfo/aboutDepartment"; // 학과소개 뷰 반환
 	}
-	
-	/***************************
-	    	학과 연혁
-	***************************/    
 	
 	// Main : drop-down 학과안내 -> 학과연혁 (학과연혁 페이지로 이동)
 	@GetMapping("/department-history")

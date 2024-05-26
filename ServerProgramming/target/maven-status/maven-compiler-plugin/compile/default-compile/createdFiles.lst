@@ -1,0 +1,11 @@
+kr/co/inhatcspring/mapper/MapperInterface.class
+kr/co/inhatcspring/config/SpringConfigClass.class
+kr/co/inhatcspring/controller/DepartmentInfoController.class
+kr/co/inhatcspring/config/RootAppContext.class
+kr/co/inhatcspring/controller/HomeController.class
+kr/co/inhatcspring/beans/BoardDataBean.class
+kr/co/inhatcspring/controller/CurriculumController.class
+kr/co/inhatcspring/config/ServletAppContext.class
+kr/co/inhatcspring/controller/CrudController.class
+kr/co/inhatcspring/controller/CommunityController.class
+kr/co/inhatcspring/controller/DirectionsController.class

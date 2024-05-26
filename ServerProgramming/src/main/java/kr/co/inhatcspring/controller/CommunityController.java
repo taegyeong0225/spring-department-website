@@ -18,12 +18,14 @@ public class CommunityController {
 
     @Autowired
     private MapperInterface mapper;
-
+    
     /***************************
-              커뮤니티
+    
+    	   커뮤니티 컨트롤러
+    
      ***************************/
     
-    // 공지사항 페이지
+    // 공지사항 페이지로 이동 
     @GetMapping("/notification")
     public String notification(@RequestParam(value = "category", required = false, defaultValue = "notification") String category, Model model) {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
@@ -32,7 +34,7 @@ public class CommunityController {
         return "community/notification"; // 'community/notification' 뷰 반환
     }
 
-    // 자주 묻는 질문(FAQ) 페이지
+    // 자주 묻는 질문(FAQ) 페이지로 이동 
     @GetMapping("/frequently-asked-questions")
     public String frequentlyAskedQuestions(@RequestParam(value = "category", required = false, defaultValue = "frequently-asked-questions") String category, Model model) {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
@@ -41,7 +43,7 @@ public class CommunityController {
         return "community/frequentlyAskedQuestions"; // 'community/frequentlyAskedQuestions' 뷰 반환
     }
 
-    // 자유게시판 페이지
+    // 자유게시판 페이지로 이동 
     @GetMapping("/free-board")
     public String freeBoard(@RequestParam(value = "category", required = false, defaultValue = "free-board") String category, Model model) {
         List<BoardDataBean> boardList = mapper.getBoardList(category);

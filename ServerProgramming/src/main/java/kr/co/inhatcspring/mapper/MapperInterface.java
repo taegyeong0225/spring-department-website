@@ -12,18 +12,26 @@ import kr.co.inhatcspring.beans.BoardDataBean;
 import kr.co.inhatcspring.beans.DataBean;
 
 public interface MapperInterface {
-	@Insert("INSERT INTO ONLINEBOARD (BOARDID, CATEGORY, TITLE, CONTENT, USERID) VALUES (board_seq.NEXTVAL, #{category}, #{title}, #{content}, #{userId})")
+    
+    // 새로운 게시글 데이터를 ONLINEBOARD 테이블에 삽입
+    // 게시글 ID는 시퀀스를 사용하여 자동 생성
+    @Insert("INSERT INTO ONLINEBOARD (BOARDID, CATEGORY, TITLE, CONTENT, USERID) VALUES (board_seq.NEXTVAL, #{category}, #{title}, #{content}, #{userId})")
     void insertBoardData(BoardDataBean boardDataBean);
 
+    // 특정 카테고리의 게시글 데이터 조회
+    // 결과는 BOARDID 내림차순 정렬
     @Select("SELECT * FROM ONLINEBOARD WHERE CATEGORY = #{category} ORDER BY BOARDID DESC")
     List<BoardDataBean> getBoardList(String category);
 
+    // 특정 게시글 ID의 데이터 조회
     @Select("SELECT * FROM ONLINEBOARD WHERE BOARDID = #{boardId}")
     BoardDataBean getBoardData(@Param("boardId") Long boardId);
 
+    // 특정 게시글 ID의 데이터 업데이트
     @Update("UPDATE ONLINEBOARD SET TITLE = #{title}, CONTENT = #{content} WHERE BOARDID = #{boardId}")
     void updateBoardData(BoardDataBean boardDataBean);
 
+    // 특정 게시글 ID의 데이터 삭제
     @Delete("DELETE FROM ONLINEBOARD WHERE BOARDID = #{boardId}")
     void deleteBoardData(@Param("boardId") Long boardId);
 

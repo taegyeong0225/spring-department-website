@@ -23,7 +23,7 @@ public class DirectionsController {
              오시는 길
     ***************************/
     
-    // 오시는 길 페이지
+    // Main : 오시는 길 -> 오시는 길 (오시는 길 페이지로 이동)
     @GetMapping("/directions")
     public String directions(@RequestParam(value = "category", required = false, defaultValue = "directions") String category, Model model) {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
