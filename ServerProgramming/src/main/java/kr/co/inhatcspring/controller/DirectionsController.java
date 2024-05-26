@@ -57,7 +57,7 @@ public class DirectionsController {
         mapper.insertBoardData(boardDataBean);
 
         // 처리 후 카테고리 페이지로 리다이렉션
-        return "redirect:/directions?category=" + category;
+        return "redirect:/" + category;
     }
 
 
