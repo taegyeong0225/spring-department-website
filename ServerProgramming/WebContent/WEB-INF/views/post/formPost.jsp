@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<%@ include file="header.jsp"%>
+<%@ include file="../etc/header.jsp"%>
 
 <div class="container mt-5">
     <h2>글 작성 ( ${category} )</h2>

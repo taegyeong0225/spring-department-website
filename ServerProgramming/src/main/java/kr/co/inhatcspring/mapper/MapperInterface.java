@@ -12,19 +12,19 @@ import kr.co.inhatcspring.beans.BoardDataBean;
 import kr.co.inhatcspring.beans.DataBean;
 
 public interface MapperInterface {
-	@Insert("INSERT INTO ONLINEBOARD (BOARD_ID, CREATED_DATE, CATEGORY, TITLE, CONTENT, USER_ID) VALUES (board_seq.NEXTVAL, CURRENT_TIMESTAMP, #{category}, #{title}, #{content}, #{userId})")
+	@Insert("INSERT INTO ONLINEBOARD (BOARDID, CATEGORY, TITLE, CONTENT, USERID) VALUES (board_seq.NEXTVAL, #{category}, #{title}, #{content}, #{userId})")
     void insertBoardData(BoardDataBean boardDataBean);
 
-    @Select("SELECT * FROM ONLINEBOARD WHERE CATEGORY = #{category} ORDER BY CREATED_DATE DESC")
+    @Select("SELECT * FROM ONLINEBOARD WHERE CATEGORY = #{category} ORDER BY BOARDID DESC")
     List<BoardDataBean> getBoardList(String category);
 
-    @Select("SELECT * FROM ONLINEBOARD WHERE BOARD_ID = #{boardId}")
+    @Select("SELECT * FROM ONLINEBOARD WHERE BOARDID = #{boardId}")
     BoardDataBean getBoardData(@Param("boardId") Long boardId);
 
-    @Update("UPDATE ONLINEBOARD SET TITLE = #{title}, CONTENT = #{content} WHERE BOARD_ID = #{boardId}")
+    @Update("UPDATE ONLINEBOARD SET TITLE = #{title}, CONTENT = #{content} WHERE BOARDID = #{boardId}")
     void updateBoardData(BoardDataBean boardDataBean);
 
-    @Delete("DELETE FROM ONLINEBOARD WHERE BOARD_ID = #{boardId}")
+    @Delete("DELETE FROM ONLINEBOARD WHERE BOARDID = #{boardId}")
     void deleteBoardData(@Param("boardId") Long boardId);
 
 

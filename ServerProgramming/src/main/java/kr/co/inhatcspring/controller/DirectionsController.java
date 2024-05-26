@@ -1,7 +1,8 @@
 package kr.co.inhatcspring.controller;
 
 import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ public class DirectionsController {
     
     @Autowired
     private MapperInterface mapper;
+    
+    private static final Logger logger = LoggerFactory.getLogger(DirectionsController.class);
 
     /***************************
             오시는 길
@@ -37,7 +40,7 @@ public class DirectionsController {
     @GetMapping("/formPost")
     public String formPost(@RequestParam("category") String category, Model model) {
         model.addAttribute("category", category); // 모델에 'category' 속성 추가
-        return "etc/formPost"; // 'etc/formPost' 뷰 반환
+        return "post/formPost"; // 'etc/formPost' 뷰 반환
     }
 
     // 글 작성 폼 제출 처리
@@ -56,16 +59,30 @@ public class DirectionsController {
         // 데이터 저장
         mapper.insertBoardData(boardDataBean);
 
+        // 로그 출력
+        System.out.println("글 작성됨 - " + boardDataBean.toString());
+        logger.info("글 작성됨 - 카테고리: " + boardDataBean.getCategory() + ", 제목: " + boardDataBean.getTitle() + ", 작성자: " + boardDataBean.getUserId() + ", 내용: " + boardDataBean.getContent());
+
         return "redirect:/directions";
     }
+    
+    // 글 조회 페이지로 이동
+    @GetMapping("/viewPost")
+    public String viewPost(@RequestParam("boardId") Long boardId, Model model) {
+        BoardDataBean boardDataBean = mapper.getBoardData(boardId);
+        model.addAttribute("boardDataBean", boardDataBean);
+        return "/post/viewPost"; // 'etc/viewPost' 뷰 반환
+    }
+
 
     // 글 수정 폼으로 이동
     @GetMapping("/editPost")
     public String editPost(@RequestParam("boardId") Long boardId, Model model) {
         BoardDataBean boardDataBean = mapper.getBoardData(boardId);
         model.addAttribute("boardDataBean", boardDataBean);
-        return "etc/editPost"; // 'etc/editPost' 뷰 반환
+        return "/post/editPost"; // 'etc/editPost' 뷰 반환
     }
+
 
     // 글 수정 처리
     @PostMapping("/updatePost")
@@ -81,9 +98,9 @@ public class DirectionsController {
         // 데이터 업데이트
         mapper.updateBoardData(boardDataBean);
 
-        // 처리 후 카테고리 페이지로 리다이렉션
         return "redirect:/directions";
     }
+
 
     // 글 삭제 처리
     @GetMapping("/deletePost")

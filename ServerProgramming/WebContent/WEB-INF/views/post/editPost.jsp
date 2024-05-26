@@ -6,8 +6,7 @@
     <title>글 수정</title>
 </head>
 <body>
-
-<%@ include file="header.jsp"%>
+<%@ include file="../etc/header.jsp"%>
 
 <div class="container mt-5">
     <h2>글 수정</h2>
@@ -26,4 +25,3 @@
 </div>
 </body>
 </html>
-
