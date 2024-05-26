@@ -40,4 +40,12 @@ public class BoardController {
 
         return "redirect:/" + category;
     }
+    
+    // 글 조회 페이지로 이동
+    @GetMapping("/viewPost")
+    public String viewPost(@RequestParam("boardId") Long boardId, Model model) {
+        BoardDataBean boardDataBean = mapper.getBoardData(boardId);
+        model.addAttribute("boardDataBean", boardDataBean);
+        return "post/viewPost"; // 'post/viewPost' 뷰 반환
+    }
 }

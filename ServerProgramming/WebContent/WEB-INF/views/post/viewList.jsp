@@ -17,7 +17,7 @@
             <c:forEach var="board" items="${boardList}">
                 <tr>
                     <td>${board.userId}</td>
-                    <td><a href="${pageContext.request.contextPath}/${board.category}/viewPost?boardId=${board.boardId}">${board.title}</a></td>
+                    <td><a href="${pageContext.request.contextPath}/viewPost?boardId=${board.boardId}">${board.title}</a></td>
                 </tr>
             </c:forEach>
         </tbody>

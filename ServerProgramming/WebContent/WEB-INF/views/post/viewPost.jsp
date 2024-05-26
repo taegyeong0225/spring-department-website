@@ -34,8 +34,8 @@
     
         <div class="card-footer text-right">
             <a href="${pageContext.request.contextPath}/${boardDataBean.category}" class="btn btn-secondary  btn-sm">목록으로</a>
-            <a href="${pageContext.request.contextPath}/${boardDataBean.category}/editPost?boardId=${boardDataBean.boardId}" class="btn btn-primary btn-sm">수정</a>
-            <a href="${pageContext.request.contextPath}/${boardDataBean.category}/deletePost?boardId=${boardDataBean.boardId}" class="btn btn-danger btn-sm">삭제</a>
+            <a href="${pageContext.request.contextPath}/editPost?boardId=${boardDataBean.boardId}" class="btn btn-primary btn-sm">수정</a>
+            <a href="${pageContext.request.contextPath}/deletePost?boardId=${boardDataBean.boardId}" class="btn btn-danger btn-sm">삭제</a>
         </div>
     </div>
 </div>

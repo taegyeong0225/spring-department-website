@@ -11,7 +11,7 @@
 
 <div class="container mt-5">
     <h2>글 작성 ( ${category} )</h2>
-    <form action="${pageContext.request.contextPath}/${category}/submitPost" method="post">
+    <form action="${pageContext.request.contextPath}/submitPost" method="post">
         <input type="hidden" name="category" value="${category}">
         <div class="mb-3">
             <label for="postTitle" class="form-label">제목</label>
