@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,6 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>번호</th>
                     <th>작성자</th>
                     <th>내용</th>
                     <th>작성일</th>
@@ -27,7 +27,6 @@
             <tbody>
                 <c:forEach var="board" items="${boardList}">
                     <tr>
-                        <td>${board.boardId}</td>
                         <td>${board.userId}</td>
                         <td>${board.content}</td>
                         <td>${board.createdDate}</td>
