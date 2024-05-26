@@ -31,8 +31,8 @@
                 학과안내
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/ServerProgramming/department-info/about-department">학과소개</a></li>
-                <li><a class="dropdown-item" href="/ServerProgramming/department-info/department-history">학과연혁</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/about-department">학과소개</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/department-history">학과연혁</a></li>
               </ul>
             </li>
             
@@ -42,10 +42,10 @@
                 교과과정
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/ServerProgramming/curriculum/first-grade">1학년</a></li>
-                <li><a class="dropdown-item" href="/ServerProgramming/curriculum/second-grade">2학년</a></li>
-                <li><a class="dropdown-item" href="/ServerProgramming/curriculum/third-grade">3학년</a></li>
-                <li><a class="dropdown-item" href="/ServerProgramming/curriculum/bachelors-degree-course">전공심화</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/first-grade">1학년</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/second-grade">2학년</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/third-grade">3학년</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/bachelors-degree-course">전공심화</a></li>
               </ul>
             </li>
             
@@ -55,9 +55,9 @@
                 커뮤니티
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/ServerProgramming/community/notification">공지사항</a></li>
-                <li><a class="dropdown-item" href="/ServerProgramming/community/frequently-asked-questions">FAQ</a></li>
-                <li><a class="dropdown-item" href="/ServerProgramming/community/free-board">자유게시판</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/notification">공지사항</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/frequently-asked-questions">FAQ</a></li>
+                <li><a class="dropdown-item" href="/ServerProgramming/free-board">자유게시판</a></li>
               </ul>
             </li>
             
