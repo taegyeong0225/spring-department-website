@@ -48,39 +48,4 @@ public class BoardController {
         model.addAttribute("boardDataBean", boardDataBean);
         return "post/viewPost"; // 'post/viewPost' 뷰 반환
     }
-    
- // 글 수정 폼으로 이동
-    @GetMapping("/editPost")
-    public String editPost(@RequestParam("boardId") Long boardId, @RequestParam("category") String category, Model model) {
-        BoardDataBean boardDataBean = mapper.getBoardData(boardId);
-        model.addAttribute("boardDataBean", boardDataBean);
-        model.addAttribute("category", category); // 모델에 'category' 속성 추가
-        return "post/editPost"; // 'post/editPost' 뷰 반환
-    }
-
-    // 글 수정 처리
-    @PostMapping("/{category}/updatePost")
-    public String updateBoardData(@RequestParam("boardId") Long boardId,
-                                  @RequestParam("category") String category,
-                                  @RequestParam("title") String title,
-                                  @RequestParam("content") String content) {
-        BoardDataBean boardDataBean = new BoardDataBean();
-        boardDataBean.setBoardId(boardId);
-        boardDataBean.setCategory(category);
-        boardDataBean.setTitle(title);
-        boardDataBean.setContent(content);
-
-        // 데이터 업데이트
-        mapper.updateBoardData(boardDataBean);
-
-        return "redirect:/" + category;
-    }
-
-    
-    // 글 삭제 처리
-    @GetMapping("/deletePost")
-    public String deletePost(@RequestParam("boardId") Long boardId, @RequestParam("category") String category) {
-        mapper.deleteBoardData(boardId);
-        return "redirect:/" + category;
-    }
 }
