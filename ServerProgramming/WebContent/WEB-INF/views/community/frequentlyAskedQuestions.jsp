@@ -8,7 +8,10 @@
 </head>
 <body>
 	<%@ include file="../etc/header.jsp"%>
+	<div class="container mt-5">
 	<h1>FAQ</h1>
-	<a href="/ServerProgramming/community/formPost?category=자주하는질문" class="btn btn-outline-secondary">글 작성</a>
+	<a href="/ServerProgramming/community/formPost?category=frequently-asked-questions" class="btn btn-outline-secondary">글 작성</a>
+	</div>
+
 </body>
 </html>

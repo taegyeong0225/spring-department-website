@@ -8,7 +8,10 @@
 </head>
 <body>
 	<%@ include file="../etc/header.jsp"%>
+	<div class="container mt-5">
 	<h1>전공심화 </h1>
-	<a href="/ServerProgramming/curriculum/formPost?category=전공심화" class="btn btn-outline-secondary">글 작성</a>
+	<a href="/ServerProgramming/curriculum/formPost?category=bachelors-degree-course" class="btn btn-outline-secondary">글 작성</a>
+	</div>
+	
 </body>
 </html>

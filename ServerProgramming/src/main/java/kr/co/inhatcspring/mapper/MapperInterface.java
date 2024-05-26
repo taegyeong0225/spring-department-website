@@ -10,7 +10,9 @@ public interface MapperInterface {
 	@Insert("INSERT INTO OnlineBoard (board_id, created_date, category, content, user_id) VALUES (board_seq.NEXTVAL, CURRENT_TIMESTAMP, #{category}, #{content}, #{userId})")
     void insertBoardData(BoardDataBean boardDataBean);
 	
-	
+	@Select("SELECT * FROM OnlineBoard WHERE category = #{category} ORDER BY created_date DESC")
+	List<BoardDataBean> getBoardList(String category);
+
 
 	// 12주차
 	@Insert("insert into spring_mvc_table (data1, data2, data3) values (#{data1}, #{data2}, #{data3} )")

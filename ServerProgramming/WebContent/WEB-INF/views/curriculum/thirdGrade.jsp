@@ -8,7 +8,9 @@
 </head>
 <body>
 	<%@ include file="../etc/header.jsp"%>
+	<div class="container mt-5">
 	<h1>3학년 </h1>
-	<a href="/ServerProgramming/curriculum/formPost?category=3학년" class="btn btn-outline-secondary">글 작성</a>
+	<a href="/ServerProgramming/curriculum/formPost?category=third-grade" class="btn btn-outline-secondary">글 작성</a>
+	</div>
 </body>
 </html>

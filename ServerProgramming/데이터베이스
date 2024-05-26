@@ -32,3 +32,61 @@ BEGIN
 END;
 /
 
+
+
+
+---
+
+
+package kr.co.inhatcspring.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kr.co.inhatcspring.beans.BoardDataBean;
+import kr.co.inhatcspring.mapper.MapperInterface;
+
+@Controller
+@RequestMapping("/directions")
+public class DirectionsController {
+    
+    @Autowired
+    MapperInterface mapper; // 데이터베이스 작업을 위한 MyBatis 매퍼 인터페이스 자동 주입
+    private BoardDataBean boardDataBean;
+
+    
+    // 오시는 길 페이지에서 글 작성 버튼 클릭 -> 글 작성 페이지
+    @GetMapping("/{category}/formPost")
+    public String formPost(@PathVariable("category") String category, Model model) {
+        model.addAttribute("category", category); // 모델에 'category' 속성 추가
+        return "etc/formPost"; // 'etc/formPost' 뷰 반환
+    }
+    
+    // 글 작성 폼 제출 처리
+    @PostMapping("/{category}/submitPost")
+    public String insertBoardData(@PathVariable("category") String category,
+                                  @RequestParam("title") String title,
+                                  @RequestParam("userId") String userId,  // userId로 변경
+                                  @RequestParam("content") String content,
+                                  Model model) {
+    	BoardDataBean boardDataBean = new BoardDataBean();
+        boardDataBean.setCategory(category);
+        boardDataBean.setContent(content);
+        boardDataBean.setUserId(userId);  // userId 설정
+        
+        // 데이터 저장
+        mapper.insertBoardData(boardDataBean);
+
+        // 처리 후 카테고리 페이지로 리다이렉션
+        return "redirect:/" + category;
+    }
+   
+}
+
+
