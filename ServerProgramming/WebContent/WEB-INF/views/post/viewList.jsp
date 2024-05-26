@@ -1,7 +1,10 @@
+<!-- 글 작성 버튼 -->
+<a href="${pageContext.request.contextPath}/formPost?category=${category}" class="btn btn-outline-secondary">
+    글 작성
+</a>
 
- <a href="${pageContext.request.contextPath}/formPost?category=${category}" class="btn btn-outline-secondary">
- 	글 작성</a>
 
+<!-- 글 목록 리스트 -->
 <div class="mt-4">
     <table class="table table-striped">
         <thead>
