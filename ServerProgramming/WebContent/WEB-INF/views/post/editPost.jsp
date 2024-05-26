@@ -10,8 +10,9 @@
 
 <div class="container mt-5">
     <h2>글 수정</h2>
-    <form action="${pageContext.request.contextPath}/directions/updatePost" method="post">
+    <form action="${pageContext.request.contextPath}/${boardDataBean.category}/updatePost" method="post">
         <input type="hidden" name="boardId" value="${boardDataBean.boardId}">
+        <input type="hidden" name="category" value="${boardDataBean.category}">
         <div class="mb-3">
             <label for="postTitle" class="form-label">제목</label>
             <input type="text" class="form-control" id="postTitle" name="title" value="${boardDataBean.title}" required>

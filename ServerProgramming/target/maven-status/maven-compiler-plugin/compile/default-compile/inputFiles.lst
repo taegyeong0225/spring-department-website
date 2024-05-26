@@ -7,5 +7,6 @@
 /Users/gotaegyeong/git/springMiddleTest/ServerProgramming/src/main/java/kr/co/inhatcspring/controller/DepartmentInfoController.java
 /Users/gotaegyeong/git/springMiddleTest/ServerProgramming/src/main/java/kr/co/inhatcspring/config/RootAppContext.java
 /Users/gotaegyeong/git/springMiddleTest/ServerProgramming/src/main/java/kr/co/inhatcspring/controller/CommunityController.java
+/Users/gotaegyeong/git/springMiddleTest/ServerProgramming/src/main/java/kr/co/inhatcspring/beans/DataBean.java
 /Users/gotaegyeong/git/springMiddleTest/ServerProgramming/src/main/java/kr/co/inhatcspring/config/SpringConfigClass.java
 /Users/gotaegyeong/git/springMiddleTest/ServerProgramming/src/main/java/kr/co/inhatcspring/beans/BoardDataBean.java
