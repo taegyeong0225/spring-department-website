@@ -33,7 +33,6 @@ public class DirectionsController {
         return "etc/directions"; // 'etc/directions' 뷰 반환
     }
 
-    
     // 오시는 길 페이지에서 글 작성 버튼 클릭 -> 글 작성 페이지
     @GetMapping("/formPost")
     public String formPost(@RequestParam("category") String category, Model model) {
@@ -50,14 +49,47 @@ public class DirectionsController {
                                   Model model) {
         BoardDataBean boardDataBean = new BoardDataBean();
         boardDataBean.setCategory(category);
+        boardDataBean.setTitle(title); // title 설정
         boardDataBean.setContent(content);
         boardDataBean.setUserId(userId);
 
         // 데이터 저장
         mapper.insertBoardData(boardDataBean);
 
+        return "redirect:/directions";
+    }
+
+    // 글 수정 폼으로 이동
+    @GetMapping("/editPost")
+    public String editPost(@RequestParam("boardId") Long boardId, Model model) {
+        BoardDataBean boardDataBean = mapper.getBoardData(boardId);
+        model.addAttribute("boardDataBean", boardDataBean);
+        return "etc/editPost"; // 'etc/editPost' 뷰 반환
+    }
+
+    // 글 수정 처리
+    @PostMapping("/updatePost")
+    public String updateBoardData(@RequestParam("boardId") Long boardId,
+                                  @RequestParam("title") String title,
+                                  @RequestParam("content") String content,
+                                  Model model) {
+        BoardDataBean boardDataBean = new BoardDataBean();
+        boardDataBean.setBoardId(boardId);
+        boardDataBean.setTitle(title);
+        boardDataBean.setContent(content);
+
+        // 데이터 업데이트
+        mapper.updateBoardData(boardDataBean);
+
         // 처리 후 카테고리 페이지로 리다이렉션
-        return "redirect:/" + category;
+        return "redirect:/directions";
+    }
+
+    // 글 삭제 처리
+    @GetMapping("/deletePost")
+    public String deletePost(@RequestParam("boardId") Long boardId, Model model) {
+        mapper.deleteBoardData(boardId);
+        return "redirect:/directions";
     }
 
 

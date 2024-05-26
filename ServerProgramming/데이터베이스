@@ -6,8 +6,8 @@ create table spring_mvc_table(
 );
 
 # 기말 대체 프로젝트_중간 (고태경)
-## 시퀀스
--- 시퀀스 생성
+
+-- 시퀀스 생성 (BOARD_ID 자동 증가를 위해)
 CREATE SEQUENCE board_seq
     START WITH 1
     INCREMENT BY 1
@@ -15,78 +15,11 @@ CREATE SEQUENCE board_seq
     NOCYCLE;
 
 -- 테이블 생성
-CREATE TABLE OnlineBoard (
-    board_id NUMBER PRIMARY KEY,
-    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    category VARCHAR2(255) NOT NULL,  -- 'category' 필드 추가
-    content CLOB NOT NULL,
-    user_id VARCHAR2(255) NOT NULL    -- 'user_id' 필드 추가
+CREATE TABLE ONLINEBOARD (
+    BOARD_ID NUMBER DEFAULT 0 PRIMARY KEY,
+    CREATED_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CATEGORY VARCHAR2(255) NOT NULL,
+    TITLE VARCHAR2(255),
+    CONTENT CLOB NOT NULL,
+    USER_ID VARCHAR2(255) NOT NULL
 );
-
--- 트리거 생성
-CREATE OR REPLACE TRIGGER board_id_trigger
-BEFORE INSERT ON OnlineBoard
-FOR EACH ROW
-BEGIN
-    :NEW.board_id := board_seq.NEXTVAL;
-END;
-/
-
-
-
-
----
-
-
-package kr.co.inhatcspring.controller;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import kr.co.inhatcspring.beans.BoardDataBean;
-import kr.co.inhatcspring.mapper.MapperInterface;
-
-@Controller
-@RequestMapping("/directions")
-public class DirectionsController {
-    
-    @Autowired
-    MapperInterface mapper; // 데이터베이스 작업을 위한 MyBatis 매퍼 인터페이스 자동 주입
-    private BoardDataBean boardDataBean;
-
-    
-    // 오시는 길 페이지에서 글 작성 버튼 클릭 -> 글 작성 페이지
-    @GetMapping("/{category}/formPost")
-    public String formPost(@PathVariable("category") String category, Model model) {
-        model.addAttribute("category", category); // 모델에 'category' 속성 추가
-        return "etc/formPost"; // 'etc/formPost' 뷰 반환
-    }
-    
-    // 글 작성 폼 제출 처리
-    @PostMapping("/{category}/submitPost")
-    public String insertBoardData(@PathVariable("category") String category,
-                                  @RequestParam("title") String title,
-                                  @RequestParam("userId") String userId,  // userId로 변경
-                                  @RequestParam("content") String content,
-                                  Model model) {
-    	BoardDataBean boardDataBean = new BoardDataBean();
-        boardDataBean.setCategory(category);
-        boardDataBean.setContent(content);
-        boardDataBean.setUserId(userId);  // userId 설정
-        
-        // 데이터 저장
-        mapper.insertBoardData(boardDataBean);
-
-        // 처리 후 카테고리 페이지로 리다이렉션
-        return "redirect:/" + category;
-    }
-   
-}
-
-
