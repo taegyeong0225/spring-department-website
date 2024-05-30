@@ -31,7 +31,7 @@ public class CommunityController {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
         model.addAttribute("boardList", boardList);
         model.addAttribute("category", category);
-        return "community/notification"; // 'community/notification' 뷰 반환
+        return "post/viewList"; // notification 뷰 반환
     }
 
     // 자주 묻는 질문(FAQ) 페이지로 이동 
@@ -40,7 +40,7 @@ public class CommunityController {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
         model.addAttribute("boardList", boardList);
         model.addAttribute("category", category);
-        return "community/frequentlyAskedQuestions"; // 'community/frequentlyAskedQuestions' 뷰 반환
+        return "post/viewList"; // frequentlyAskedQuestions 뷰 반환
     }
 
     // 자유게시판 페이지로 이동 
@@ -49,7 +49,7 @@ public class CommunityController {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
         model.addAttribute("boardList", boardList);
         model.addAttribute("category", category);
-        return "community/freeBoard"; // 'community/freeBoard' 뷰 반환
+        return "post/viewList"; //freeBoard' 뷰 반환
     }
 
 }

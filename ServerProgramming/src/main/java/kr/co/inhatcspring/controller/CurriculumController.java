@@ -32,7 +32,7 @@ public class CurriculumController {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
         model.addAttribute("boardList", boardList);
         model.addAttribute("category", category);
-        return "curriculum/firstGrade"; // 1학년 교과과정 페이지 반환
+        return "post/viewList"; // 1학년 교과과정 페이지 반환
     }
 
     // 2학년 페이지로 이동 
@@ -41,7 +41,7 @@ public class CurriculumController {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
         model.addAttribute("boardList", boardList);
         model.addAttribute("category", category);
-        return "curriculum/secondGrade"; // 2학년 교과과정 페이지 반환
+        return "post/viewList"; // 2학년 교과과정 페이지 반환
     }
     
     // 3학년 페이지로 이동 
@@ -50,7 +50,7 @@ public class CurriculumController {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
         model.addAttribute("boardList", boardList);
         model.addAttribute("category", category);
-        return "curriculum/thirdGrade"; // 3학년 교과과정 페이지 반환
+        return "post/viewList"; // 3학년 교과과정 페이지 반환
     }
     
     // 전공심화 과정으로 이동 
@@ -59,6 +59,6 @@ public class CurriculumController {
         List<BoardDataBean> boardList = mapper.getBoardList(category);
         model.addAttribute("boardList", boardList);
         model.addAttribute("category", category);
-        return "curriculum/bachelorsDegreeCourse"; // 전공심화 교과과정 페이지 반환
+        return "post/viewList"; // 전공심화 교과과정 페이지 반환
     }
 }

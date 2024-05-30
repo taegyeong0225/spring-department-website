@@ -4,13 +4,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>오시는 길</title>
+    <title><c:out value="${title}" /></title>
 </head>
 <body>
 <%@ include file="header.jsp"%>
 
 <div class="container mt-5">
-    <h1>오시는 길</h1>
+    <h1><c:out value="${category}" /></h1>
 	<%@ include file="../post/viewList.jsp"%>
 </div>
 
